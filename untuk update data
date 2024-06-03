@@ -1,0 +1,18 @@
+Private Sub updatelistbox1()
+     Dim ws As Worksheet
+    Dim lastRow As Long
+    ' Setel lembar kerja "barangkeluar"
+    Set ws = ThisWorkbook.Sheets("barangkeluar")
+    
+    ' Cari baris terakhir dengan data di kolom F
+    lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+    
+    ' Periksa apakah ada data di kolom F
+    If lastRow >= 1 Then
+        ' Salin nilai dari kolom F di baris terakhir ke TextBox caribarangkeluar
+        caribarangkeluar.Value = ws.Cells(lastRow, "F").Value
+    Else
+        ' Kosongkan TextBox caribarangkeluar jika tidak ada data
+        caribarangkeluar.Value = ""
+    End If
+End Sub
